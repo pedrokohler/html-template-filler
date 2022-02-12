@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import DownloadSections from "./download-sections";
+import FooterParagraphs from "./footer-paragraphs";
 
 function SimpleTemplateForm() {
   const [mainDescription, setMainDescription] = useState("");
@@ -36,6 +37,7 @@ function SimpleTemplateForm() {
           onChange={(e) => setFooterTitle(e.target.value)}
         />
       </Form.Group>
+      <FooterParagraphs></FooterParagraphs>
     </Form>
   );
 }

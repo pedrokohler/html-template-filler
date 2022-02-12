@@ -1,17 +1,21 @@
-import { IDownloadSection, IFeaturesList } from "../interfaces";
+import {
+  IDownloadSection,
+  IFeaturesList,
+  IFooterParagraph,
+} from "../interfaces";
 
 export function SimpleTemplate({
   mainParagraphText,
   secondaryParagraphText,
   footerTitle,
-  footerParagraphTexts,
+  footerParagraphs,
   downloadSections,
   featuresList,
 }: {
   mainParagraphText?: string;
   secondaryParagraphText?: string;
   footerTitle?: string;
-  footerParagraphTexts?: string[];
+  footerParagraphs?: IFooterParagraph[];
   downloadSections?: IDownloadSection[];
   featuresList?: IFeaturesList[];
 }) {
@@ -48,15 +52,17 @@ export function SimpleTemplate({
               <h4>{feature.title}</h4>
               <ul className="abas-custom tab-content">
                 {feature.properties.map((property) => (
-                  <li key={property} className="abas-custom tab-content"><strong>{property}</strong></li>
+                  <li key={property} className="abas-custom tab-content">
+                    <strong>{property}</strong>
+                  </li>
                 ))}
               </ul>
             </div>
           ))}
           <p>{secondaryParagraphText ?? ""}</p>
           <h4>{footerTitle}</h4>
-          {footerParagraphTexts?.map((paragraphText: string) => (
-            <p key={paragraphText}>{paragraphText}</p>
+          {footerParagraphs?.map((paragraph: IFooterParagraph) => (
+            <p key={paragraph.id}>{paragraph.text}</p>
           ))}
         </div>
       </div>
