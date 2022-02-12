@@ -8,8 +8,6 @@ import {
 
 import { SimpleTemplate } from "../../templates";
 import { IDownloadSection, IFeaturesList } from "../../interfaces";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./style.css";
 import SimpleTemplateForm from "./form";
 import Footer from "../footer";
 
