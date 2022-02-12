@@ -11,15 +11,15 @@ function SimpleTemplateForm() {
 
   return (
     <Form>
-      <h4>Seções de Download</h4>
+      <h5>Seções de Download</h5>
       <DownloadSections></DownloadSections>
       <hr></hr>
 
-      <h4>Seções de Características</h4>
+      <h5>Seções de Características</h5>
       <FeaturesSection></FeaturesSection>
       <hr></hr>
 
-      <h4>Descrições</h4>
+      <h5>Descrições</h5>
       <Form.Group className="mb-3">
         <Form.Label>Descrição Principal</Form.Label>
         <Form.Control
@@ -39,7 +39,7 @@ function SimpleTemplateForm() {
       </Form.Group>
       <hr></hr>
 
-      <h4>Rodapé</h4>
+      <h5>Rodapé</h5>
       <Form.Group className="mb-3">
         <Form.Label>Título do rodapé</Form.Label>
         <Form.Control

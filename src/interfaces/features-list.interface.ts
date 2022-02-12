@@ -1,6 +1,6 @@
 import { IFeatureProperty } from "./feature-property.interface";
 
-export interface IFeaturesList {
+export interface IFeature {
   id: string;
   title: string;
   properties: IFeatureProperty[];

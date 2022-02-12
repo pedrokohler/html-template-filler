@@ -1,6 +1,6 @@
 import {
   IDownloadSection,
-  IFeaturesList,
+  IFeature,
   IFooterParagraph,
 } from "../interfaces";
 
@@ -17,7 +17,7 @@ export function SimpleTemplate({
   footerTitle?: string;
   footerParagraphs?: IFooterParagraph[];
   downloadSections?: IDownloadSection[];
-  featuresList?: IFeaturesList[];
+  featuresList?: IFeature[];
 }) {
   return (
     <div className="container">

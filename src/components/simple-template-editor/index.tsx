@@ -6,7 +6,7 @@ import { Container, Row } from "react-bootstrap";
 import { SimpleTemplate } from "../../templates";
 import {
   IDownloadSection,
-  IFeaturesList,
+  IFeature,
   IFooterParagraph,
 } from "../../interfaces";
 import SimpleTemplateForm from "./form";
@@ -54,7 +54,7 @@ const footerParagraphs: IFooterParagraph[] = [
   },
 ];
 
-const featuresList: IFeaturesList[] = [
+const featuresList: IFeature[] = [
   {
     id: "1",
     title: "Conteúdo do Reparo:",

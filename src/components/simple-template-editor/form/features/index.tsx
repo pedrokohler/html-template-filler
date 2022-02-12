@@ -2,11 +2,11 @@ import React, { useCallback, useState } from "react";
 import { Accordion, Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import { v4 as randomUUID } from "uuid";
 
-import { IFeaturesList } from "../../../../interfaces";
+import { IFeature } from "../../../../interfaces";
 import FeatureProperties from "./properties";
 
 function FeaturesSection() {
-  const [featuresList, setFeaturesList] = useState<IFeaturesList[]>(
+  const [featuresList, setFeaturesList] = useState<IFeature[]>(
     []
   );
 

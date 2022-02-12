@@ -1,16 +1,16 @@
 import React, { useCallback } from "react";
 import { Accordion, Button, Form, InputGroup } from "react-bootstrap";
 
-import { IFeaturesList } from "../../../../interfaces";
+import { IFeature } from "../../../../interfaces";
 
 function FeatureProperties({
   featuresList,
   setFeaturesList,
   feature,
 }: {
-  featuresList: IFeaturesList[];
-  setFeaturesList: React.Dispatch<React.SetStateAction<IFeaturesList[]>>;
-  feature: IFeaturesList;
+  featuresList: IFeature[];
+  setFeaturesList: React.Dispatch<React.SetStateAction<IFeature[]>>;
+  feature: IFeature;
 }) {
   const handleRemoveButtonClick = useCallback(
     ({ featureId, propertyId }) => {
