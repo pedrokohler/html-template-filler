@@ -2,8 +2,17 @@ import React from "react";
 import { renderToString } from "react-dom/server";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { html as beautifyHtml } from "js-beautify";
+import {
+  Button,
+  Container,
+  FormControl,
+  InputGroup,
+  Row,
+} from "react-bootstrap";
+
 import { SimpleTemplate } from "./templates";
 import { IDownloadSection, IFeaturesList } from "./interfaces";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const downloadSections: IDownloadSection[] = [
   {
@@ -64,14 +73,22 @@ function App() {
   const pretty = beautifyHtml(renderToString(<Element></Element>));
 
   return (
-    <div className="App">
-      <textarea value={pretty}></textarea>
-      <CopyToClipboard text={pretty}>
-        <button>Copy to clipboard with button</button>
-      </CopyToClipboard>
-      <Element></Element>
-    </div>
+    <Container>
+      <Row>
+        <InputGroup>
+          <InputGroup.Text>HTML</InputGroup.Text>
+          <FormControl as="textarea" aria-label="With textarea" value={pretty}/>
+        </InputGroup>
+      </Row>
+      <Row>
+        <CopyToClipboard text={pretty}>
+          <Button>Copy to clipboard</Button>
+        </CopyToClipboard>
+      </Row>
+      <Row>
+        <Element></Element>
+      </Row>
+    </Container>
   );
 }
-
 export default App;
