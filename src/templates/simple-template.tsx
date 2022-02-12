@@ -19,11 +19,11 @@ export function SimpleTemplate({
     <div className="container">
       <div className="texto-descr-produto">
         {downloadSections?.map((section) => (
-          <>
+          <div key={section.id}>
             <p></p>
             <h3 style={{ textAlign: "center" }}>{section.title}</h3>
             {section.buttons.map((button) => (
-              <>
+              <div key={button.id}>
                 <p></p>
                 <p style={{ textAlign: "center" }}>
                   <a
@@ -34,9 +34,9 @@ export function SimpleTemplate({
                     {button.text}
                   </a>
                 </p>
-              </>
+              </div>
             ))}
-          </>
+          </div>
         ))}
       </div>
       <div className="tab-content">
@@ -44,19 +44,19 @@ export function SimpleTemplate({
           <p>{mainParagraphText ?? ""}</p>
           <p></p>
           {featuresList?.map((feature) => (
-            <>
+            <div key={feature.id}>
               <h4>{feature.title}</h4>
               <ul className="abas-custom tab-content">
                 {feature.properties.map((property) => (
-                  <li className="abas-custom tab-content"><strong>{property}</strong></li>
+                  <li key={property} className="abas-custom tab-content"><strong>{property}</strong></li>
                 ))}
               </ul>
-            </>
+            </div>
           ))}
           <p>{secondaryParagraphText ?? ""}</p>
           <h4>{footerTitle}</h4>
           {footerParagraphTexts?.map((paragraphText: string) => (
-            <p>{paragraphText}</p>
+            <p key={paragraphText}>{paragraphText}</p>
           ))}
         </div>
       </div>

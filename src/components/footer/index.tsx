@@ -31,6 +31,7 @@ function Footer({
             <Accordion.Header>Ver HTML</Accordion.Header>
             <Accordion.Body>
               <FormControl
+                readOnly
                 className="html-preview"
                 as="textarea"
                 value={template}

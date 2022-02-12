@@ -13,26 +13,32 @@ import Footer from "../footer";
 
 const downloadSections: IDownloadSection[] = [
   {
+    id: '1',
     title: "Guia de Peças / Mais Informações",
     buttons: [
       {
+        id: '1',
         text: "DOWNLOAD GUIA DE PEÇAS 9303",
         url: "/",
       },
       {
+        id: '2',
         text: "DOWNLOAD GUIA DE PEÇAS 9306",
         url: "/",
       },
     ],
   },
   {
+    id: '2',
     title: "Manual da Bomba (Inglês)",
     buttons: [
       {
+        id: '1',
         text: "DOWNLOAD MANUAL DA BOMBA 9303",
         url: "/",
       },
       {
+        id: '2',
         text: "DOWNLOAD MANUAL DA BOMBA 9306",
         url: "/",
       },
@@ -46,6 +52,7 @@ const footerParagraphTexts = [
 
 const featuresList: IFeaturesList[] = [
   {
+    id: '1',
     title: "Conteúdo do Reparo:",
     properties: [
       "(1) 1 Selo Mecânico Premium LifeGuard, em Carbeto de Silício",
@@ -53,6 +60,7 @@ const featuresList: IFeaturesList[] = [
     ],
   },
   {
+    id: '2',
     title: "Compatível Com:",
     properties: [
       "BOMBAS CENTRÍFUGAS HYPRO DAS SÉRIES:",
@@ -62,6 +70,7 @@ const featuresList: IFeaturesList[] = [
     ],
   },
   {
+    id: '3',
     title: "Características:",
     properties: [
       "VIDA ÚTIL 8 VEZES SUPERIOR SOB PRODUTOS ABRASIVOS.",
