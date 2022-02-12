@@ -1,5 +1,6 @@
 import React from "react";
 import { renderToString } from "react-dom/server";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import { html as beautifyHtml } from "js-beautify";
 import { SimpleTemplate } from "./templates";
 import { IDownloadSection, IFeaturesList } from "./interfaces";
@@ -34,7 +35,7 @@ const downloadSections: IDownloadSection[] = [
 ];
 
 const footerParagraphTexts = [
-  "OPERAÇÃO A SECO DANIFICARÁ O SELO MECÂNICO E INVALIDARÁ A GARANTIA DO PRODUTO. EVITE \"RODAR A SECO\"!"
+  'OPERAÇÃO A SECO DANIFICARÁ O SELO MECÂNICO E INVALIDARÁ A GARANTIA DO PRODUTO. EVITE "RODAR A SECO"!',
 ];
 
 const featuresList: IFeaturesList[] = [
@@ -42,10 +43,10 @@ const featuresList: IFeaturesList[] = [
     title: "Conteúdo do Reparo:",
     properties: [
       "(1) 1 Selo Mecânico Premium LifeGuard, em Carbeto de Silício",
-      "(1) O-RING"
-    ]
-  }
-]
+      "(1) O-RING",
+    ],
+  },
+];
 
 function App() {
   const Element = () => (
@@ -65,6 +66,9 @@ function App() {
   return (
     <div className="App">
       <textarea value={pretty}></textarea>
+      <CopyToClipboard text={pretty}>
+        <button>Copy to clipboard with button</button>
+      </CopyToClipboard>
       <Element></Element>
     </div>
   );
