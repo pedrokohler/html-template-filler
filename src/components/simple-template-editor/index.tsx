@@ -1,14 +1,9 @@
 import React from "react";
 import { renderToString } from "react-dom/server";
-import { CopyToClipboard } from "react-copy-to-clipboard";
 import { html as beautifyHtml } from "js-beautify";
 import {
-  Button,
-  Col,
   Container,
-  FormControl,
   Row,
-  Accordion,
 } from "react-bootstrap";
 
 import { SimpleTemplate } from "../../templates";
@@ -16,6 +11,7 @@ import { IDownloadSection, IFeaturesList } from "../../interfaces";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 import SimpleTemplateForm from "./form";
+import Footer from "../footer";
 
 const downloadSections: IDownloadSection[] = [
   {
@@ -104,35 +100,9 @@ function EditSimpleTemplate() {
         </Row>
       </Container>
 
-      <Container className="my-2 sticky">
-        <Row className="my-2">
-          <Col>
-            <CopyToClipboard text={prettifiedTemplateHtml}>
-              <Button>Copiar HTML</Button>
-            </CopyToClipboard>
-          </Col>
-        </Row>
-        <Row className="my-2">
-          <Accordion>
-            <Accordion.Item eventKey="0">
-              <Accordion.Header>Ver HTML</Accordion.Header>
-              <Accordion.Body>
-                <FormControl
-                  className="html-preview"
-                  as="textarea"
-                  value={prettifiedTemplateHtml}
-                />
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="1">
-              <Accordion.Header>Pré-Visualização</Accordion.Header>
-              <Accordion.Body>
-                <FilledTemplate></FilledTemplate>
-              </Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
-        </Row>
-      </Container>
+      <Footer template={prettifiedTemplateHtml}>
+        <FilledTemplate></FilledTemplate>
+      </Footer>
     </>
   );
 }

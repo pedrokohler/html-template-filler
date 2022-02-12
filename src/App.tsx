@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Tabs, Tab } from "react-bootstrap";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import EditSimpleTemplate from "./components/simple-template/edit";
+import EditSimpleTemplate from "./components/simple-template-editor";
 
 function App() {
   return (

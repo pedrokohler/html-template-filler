@@ -6,6 +6,7 @@ import "./style.css";
 
 function SimpleTemplateForm() {
   const [mainDescription, setMainDescription] = useState("");
+  const [footerTitle, setFooterTitle] = useState("");
   const [secondaryDescription, setSecondaryDescription] = useState("");
 
   return (
@@ -25,6 +26,15 @@ function SimpleTemplateForm() {
           as="textarea"
           value={secondaryDescription}
           onChange={(e) => setSecondaryDescription(e.target.value)}
+        />
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label>Título do rodapé</Form.Label>
+        <Form.Control
+          as="input"
+          value={footerTitle}
+          onChange={(e) => setFooterTitle(e.target.value)}
         />
       </Form.Group>
     </Form>
