@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import DownloadSections from "./download-sections";
+import FeaturesSection from "./features";
 import FooterParagraphs from "./footer-paragraphs";
 
 function SimpleTemplateForm() {
@@ -14,6 +15,9 @@ function SimpleTemplateForm() {
       <DownloadSections></DownloadSections>
       <hr></hr>
 
+      <h4>Seções de Características</h4>
+      <FeaturesSection></FeaturesSection>
+      <hr></hr>
 
       <h4>Descrições</h4>
       <Form.Group className="mb-3">

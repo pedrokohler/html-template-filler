@@ -59,28 +59,34 @@ const featuresList: IFeaturesList[] = [
     id: "1",
     title: "Conteúdo do Reparo:",
     properties: [
-      "(1) 1 Selo Mecânico Premium LifeGuard, em Carbeto de Silício",
-      "(1) O-RING",
+      {
+        id: "1",
+        text: "(1) 1 Selo Mecânico Premium LifeGuard, em Carbeto de Silício",
+      },
+      {
+        id: "2",
+        text: "(1) O-RING",
+      },
     ],
   },
   {
     id: "2",
     title: "Compatível Com:",
     properties: [
-      "BOMBAS CENTRÍFUGAS HYPRO DAS SÉRIES:",
-      "9200",
-      "9300, INCLUINDO 9303 E 9306",
-      "9304",
+      { text: "BOMBAS CENTRÍFUGAS HYPRO DAS SÉRIES:", id: "1" },
+      { text: "9200", id: "2" },
+      { text: "9300, INCLUINDO 9303 E 9306", id: "3" },
+      { text: "9304", id: "4" },
     ],
   },
   {
     id: "3",
     title: "Características:",
     properties: [
-      "VIDA ÚTIL 8 VEZES SUPERIOR SOB PRODUTOS ABRASIVOS.",
-      "DUAS FACES EM CARBETO DE SILÍCIO.",
-      "REDUÇÃO DA NECESSIDADE DE REPOSIÇÃO.",
-      "UPGRADE DISPONÍVEL PARA BOMBAS DE FERRO FUNDIDO",
+      { text: "VIDA ÚTIL 8 VEZES SUPERIOR SOB PRODUTOS ABRASIVOS.", id: "1" },
+      { text: "DUAS FACES EM CARBETO DE SILÍCIO.", id: "2" },
+      { text: "REDUÇÃO DA NECESSIDADE DE REPOSIÇÃO.", id: "3" },
+      { text: "UPGRADE DISPONÍVEL PARA BOMBAS DE FERRO FUNDIDO", id: "4" },
     ],
   },
 ];

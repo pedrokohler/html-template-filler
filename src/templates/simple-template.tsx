@@ -52,8 +52,8 @@ export function SimpleTemplate({
               <h4>{feature.title}</h4>
               <ul className="abas-custom tab-content">
                 {feature.properties.map((property) => (
-                  <li key={property} className="abas-custom tab-content">
-                    <strong>{property}</strong>
+                  <li key={property.id} className="abas-custom tab-content">
+                    <strong>{property.text}</strong>
                   </li>
                 ))}
               </ul>
