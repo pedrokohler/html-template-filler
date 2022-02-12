@@ -96,39 +96,44 @@ function EditSimpleTemplate() {
   );
 
   return (
-    <Container>
-      <h1 className="my-4">Outros Produtos</h1>
-      <Row className="my-2">
-        <SimpleTemplateForm></SimpleTemplateForm>
-      </Row>
-      <Row className="my-2">
-        <Col>
-          <CopyToClipboard text={prettifiedTemplateHtml}>
-            <Button>Copiar HTML</Button>
-          </CopyToClipboard>
-        </Col>
-      </Row>
-      <Row className="my-2">
-        <Accordion>
-          <Accordion.Item eventKey="0">
-            <Accordion.Header>Ver HTML</Accordion.Header>
-            <Accordion.Body>
-              <FormControl
-                className="html-preview"
-                as="textarea"
-                value={prettifiedTemplateHtml}
-              />
-            </Accordion.Body>
-          </Accordion.Item>
-          <Accordion.Item eventKey="1">
-            <Accordion.Header>Pré-Visualização</Accordion.Header>
-            <Accordion.Body>
-              <FilledTemplate></FilledTemplate>
-            </Accordion.Body>
-          </Accordion.Item>
-        </Accordion>
-      </Row>
-    </Container>
+    <>
+      <Container>
+        <h1 className="my-4">Outros Produtos</h1>
+        <Row className="my-2">
+          <SimpleTemplateForm></SimpleTemplateForm>
+        </Row>
+      </Container>
+
+      <Container className="my-2 sticky">
+        <Row className="my-2">
+          <Col>
+            <CopyToClipboard text={prettifiedTemplateHtml}>
+              <Button>Copiar HTML</Button>
+            </CopyToClipboard>
+          </Col>
+        </Row>
+        <Row className="my-2">
+          <Accordion>
+            <Accordion.Item eventKey="0">
+              <Accordion.Header>Ver HTML</Accordion.Header>
+              <Accordion.Body>
+                <FormControl
+                  className="html-preview"
+                  as="textarea"
+                  value={prettifiedTemplateHtml}
+                />
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="1">
+              <Accordion.Header>Pré-Visualização</Accordion.Header>
+              <Accordion.Body>
+                <FilledTemplate></FilledTemplate>
+              </Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
+        </Row>
+      </Container>
+    </>
   );
 }
 export default EditSimpleTemplate;
