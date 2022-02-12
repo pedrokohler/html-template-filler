@@ -1,5 +1,4 @@
 import { IDownloadSection, IFeaturesList } from "../interfaces";
-import "./styles.css";
 
 export function SimpleTemplate({
   mainParagraphText,
