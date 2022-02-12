@@ -10,7 +10,12 @@ function SimpleTemplateForm() {
 
   return (
     <Form>
+      <h4>Seções de Download</h4>
       <DownloadSections></DownloadSections>
+      <hr></hr>
+
+
+      <h4>Descrições</h4>
       <Form.Group className="mb-3">
         <Form.Label>Descrição Principal</Form.Label>
         <Form.Control
@@ -20,7 +25,7 @@ function SimpleTemplateForm() {
         />
       </Form.Group>
 
-      <Form.Group className="mb-3">
+      <Form.Group className="mb-5">
         <Form.Label>Descrição Secundária</Form.Label>
         <Form.Control
           as="textarea"
@@ -28,7 +33,9 @@ function SimpleTemplateForm() {
           onChange={(e) => setSecondaryDescription(e.target.value)}
         />
       </Form.Group>
+      <hr></hr>
 
+      <h4>Rodapé</h4>
       <Form.Group className="mb-3">
         <Form.Label>Título do rodapé</Form.Label>
         <Form.Control
