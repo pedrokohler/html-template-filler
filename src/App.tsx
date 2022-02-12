@@ -1,7 +1,8 @@
 import React from "react";
 import { renderToString } from "react-dom/server";
 import { html as beautifyHtml } from "js-beautify";
-import { IDownloadSection, IFeaturesList, SimpleTemplate } from "./templates";
+import { SimpleTemplate } from "./templates";
+import { IDownloadSection, IFeaturesList } from "./interfaces";
 
 const downloadSections: IDownloadSection[] = [
   {

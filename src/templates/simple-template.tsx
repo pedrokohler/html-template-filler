@@ -1,17 +1,5 @@
+import { IDownloadSection, IFeaturesList } from "../interfaces";
 import "./styles.css";
-export interface IDownloadSectionButton {
-  text: string;
-  url: string;
-}
-export interface IDownloadSection {
-  title: string;
-  buttons: IDownloadSectionButton[];
-}
-
-export interface IFeaturesList {
-  title: string;
-  properties: string[];
-}
 
 export function SimpleTemplate({
   mainParagraphText,
