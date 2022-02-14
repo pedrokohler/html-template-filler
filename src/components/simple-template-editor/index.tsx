@@ -4,12 +4,12 @@ import { html as beautifyHtml } from "js-beautify";
 import { Container, Row } from "react-bootstrap";
 
 import { SimpleTemplate } from "../../templates";
-import { IDownloadSection, IFeature, IFooterParagraph } from "../../interfaces";
+import { IDownloadSection, IFeature, IGenericText } from "../../interfaces";
 import SimpleTemplateForm from "./form";
 import Footer from "../footer";
 
 function EditSimpleTemplate() {
-  const [footerParagraphs, setFooterParagraphs] = useState<IFooterParagraph[]>(
+  const [footerParagraphs, setFooterParagraphs] = useState<IGenericText[]>(
     []
   );
   const [featuresList, setFeaturesList] = useState<IFeature[]>([]);

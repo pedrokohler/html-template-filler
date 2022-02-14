@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import { Form, Overlay, Tooltip } from "react-bootstrap";
+import React from "react";
+import { Form } from "react-bootstrap";
 import {
   IDownloadSection,
   IFeatureWithTitle,
@@ -9,7 +9,6 @@ import {
 import { ParagraphWithLinks } from "../../../templates";
 import DescriptionParagraphField from "./description-paragraph";
 import DownloadSections from "./download-sections";
-import FeaturesSection from "./features";
 import DescriptionBulletPoints from "./description-bullet-points";
 
 function NozzleTemplateForm({

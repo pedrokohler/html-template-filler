@@ -1,4 +1,4 @@
-import { IGenericText } from "./feature-property.interface";
+import { IGenericText } from "./generic-text.interface";
 
 export interface IFeature {
   id: string;

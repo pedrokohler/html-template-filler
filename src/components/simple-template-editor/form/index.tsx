@@ -3,7 +3,7 @@ import { Form } from "react-bootstrap";
 import {
   IDownloadSection,
   IFeature,
-  IFooterParagraph,
+  IGenericText,
 } from "../../../interfaces";
 import DownloadSections from "./download-sections";
 import FeaturesSection from "./features";
@@ -23,10 +23,10 @@ function SimpleTemplateForm({
   secondaryDescription,
   setSecondaryDescription,
 }: {
-  footerParagraphs: IFooterParagraph[];
+  footerParagraphs: IGenericText[];
   featuresList: IFeature[];
   downloadSections: IDownloadSection[];
-  setFooterParagraphs: React.Dispatch<React.SetStateAction<IFooterParagraph[]>>;
+  setFooterParagraphs: React.Dispatch<React.SetStateAction<IGenericText[]>>;
   setFeaturesList: React.Dispatch<React.SetStateAction<IFeature[]>>;
   setDownloadSections: React.Dispatch<React.SetStateAction<IDownloadSection[]>>;
   mainDescription: string;

@@ -1,14 +1,14 @@
 import React, { useCallback } from "react";
 import { Accordion, Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import { v4 as randomUUID } from "uuid";
-import { IFooterParagraph } from "../../../../interfaces";
+import { IGenericText } from "../../../../interfaces";
 
 function FooterParagraphs({
   footerParagraphs,
   setFooterParagraphs,
 }: {
-  footerParagraphs: IFooterParagraph[];
-  setFooterParagraphs: React.Dispatch<React.SetStateAction<IFooterParagraph[]>>;
+  footerParagraphs: IGenericText[];
+  setFooterParagraphs: React.Dispatch<React.SetStateAction<IGenericText[]>>;
 }) {
   const handleAddClick = useCallback(() => {
     setFooterParagraphs([

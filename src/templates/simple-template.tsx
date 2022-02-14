@@ -1,7 +1,7 @@
 import {
   IDownloadSection,
   IFeature,
-  IFooterParagraph,
+  IGenericText,
 } from "../interfaces";
 
 export function SimpleTemplate({
@@ -15,7 +15,7 @@ export function SimpleTemplate({
   mainParagraphText?: string;
   secondaryParagraphText?: string;
   footerTitle?: string;
-  footerParagraphs?: IFooterParagraph[];
+  footerParagraphs?: IGenericText[];
   downloadSections?: IDownloadSection[];
   featuresList?: IFeature[];
 }) {
@@ -63,7 +63,7 @@ export function SimpleTemplate({
           ))}
           <p>{secondaryParagraphText ?? ""}</p>
           <h4>{footerTitle}</h4>
-          {footerParagraphs?.map((paragraph: IFooterParagraph) => (
+          {footerParagraphs?.map((paragraph: IGenericText) => (
             <p key={paragraph.id}>{paragraph.text}</p>
           ))}
         </div>
