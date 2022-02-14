@@ -1,15 +1,17 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import { Accordion, Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import { v4 as randomUUID } from "uuid";
 
 import { IFeature } from "../../../../interfaces";
 import FeatureProperties from "./properties";
 
-function FeaturesSection() {
-  const [featuresList, setFeaturesList] = useState<IFeature[]>(
-    []
-  );
-
+function FeaturesSection({
+  featuresList,
+  setFeaturesList,
+}: {
+  featuresList: IFeature[];
+  setFeaturesList: React.Dispatch<React.SetStateAction<IFeature[]>>;
+}) {
   const handleAddClick = useCallback(() => {
     setFeaturesList([
       ...featuresList,
@@ -24,9 +26,7 @@ function FeaturesSection() {
   const handleRemoveClick = useCallback(
     (id) => {
       return () => {
-        const features = featuresList.filter(
-          (section) => section.id !== id
-        );
+        const features = featuresList.filter((section) => section.id !== id);
         setFeaturesList(features);
       };
     },
@@ -44,7 +44,7 @@ function FeaturesSection() {
           return;
         }
 
-        if(target.name === "title"){
+        if (target.name === "title") {
           feature.title = target.value;
         }
         if (target.name === "property") {
@@ -75,8 +75,6 @@ function FeaturesSection() {
               </Accordion.Header>
               <Accordion.Body>
                 <Form.Group className="mb-3" key={feature.id}>
-                  <Form.Label>
-                  </Form.Label>
                   <InputGroup className="mb-3">
                     <InputGroup.Text>Título</InputGroup.Text>
                     <Form.Control
@@ -113,7 +111,9 @@ function FeaturesSection() {
       </Accordion>
       <Row className="mb-5">
         <Col>
-          <Button onClick={handleAddClick}>Adicionar Seção de Características</Button>
+          <Button onClick={handleAddClick}>
+            Adicionar Seção de Características
+          </Button>
         </Col>
       </Row>
     </>

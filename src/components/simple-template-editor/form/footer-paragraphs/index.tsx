@@ -1,13 +1,15 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import { Accordion, Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import { v4 as randomUUID } from "uuid";
 import { IFooterParagraph } from "../../../../interfaces";
 
-function FooterParagraphs() {
-  const [footerParagraphs, setFooterParagraphs] = useState<IFooterParagraph[]>(
-    []
-  );
-
+function FooterParagraphs({
+  footerParagraphs,
+  setFooterParagraphs,
+}: {
+  footerParagraphs: IFooterParagraph[];
+  setFooterParagraphs: React.Dispatch<React.SetStateAction<IFooterParagraph[]>>;
+}) {
   const handleAddClick = useCallback(() => {
     setFooterParagraphs([
       ...footerParagraphs,
@@ -63,8 +65,6 @@ function FooterParagraphs() {
               </Accordion.Header>
               <Accordion.Body>
                 <Form.Group className="mb-3" key={section.id}>
-                  <Form.Label>
-                  </Form.Label>
                   <InputGroup className="mb-3">
                     <InputGroup.Text>Texto</InputGroup.Text>
                     <Form.Control
@@ -88,7 +88,9 @@ function FooterParagraphs() {
       </Accordion>
       <Row className="mb-5">
         <Col>
-          <Button onClick={handleAddClick}>Adicionar Parágrafo do Rodapé</Button>
+          <Button onClick={handleAddClick}>
+            Adicionar Parágrafo do Rodapé
+          </Button>
         </Col>
       </Row>
     </>

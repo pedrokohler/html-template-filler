@@ -1,22 +1,55 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form } from "react-bootstrap";
+import {
+  IDownloadSection,
+  IFeature,
+  IFooterParagraph,
+} from "../../../interfaces";
 import DownloadSections from "./download-sections";
 import FeaturesSection from "./features";
 import FooterParagraphs from "./footer-paragraphs";
 
-function SimpleTemplateForm() {
-  const [mainDescription, setMainDescription] = useState("");
-  const [footerTitle, setFooterTitle] = useState("");
-  const [secondaryDescription, setSecondaryDescription] = useState("");
-
+function SimpleTemplateForm({
+  footerParagraphs,
+  setFooterParagraphs,
+  featuresList,
+  setFeaturesList,
+  downloadSections,
+  setDownloadSections,
+  mainDescription,
+  setMainDescription,
+  footerTitle,
+  setFooterTitle,
+  secondaryDescription,
+  setSecondaryDescription,
+}: {
+  footerParagraphs: IFooterParagraph[];
+  featuresList: IFeature[];
+  downloadSections: IDownloadSection[];
+  setFooterParagraphs: React.Dispatch<React.SetStateAction<IFooterParagraph[]>>;
+  setFeaturesList: React.Dispatch<React.SetStateAction<IFeature[]>>;
+  setDownloadSections: React.Dispatch<React.SetStateAction<IDownloadSection[]>>;
+  mainDescription: string;
+  setMainDescription: React.Dispatch<React.SetStateAction<string>>;
+  footerTitle: string;
+  setFooterTitle: React.Dispatch<React.SetStateAction<string>>;
+  secondaryDescription: string;
+  setSecondaryDescription: React.Dispatch<React.SetStateAction<string>>;
+}) {
   return (
     <Form>
       <h5>Seções de Download</h5>
-      <DownloadSections></DownloadSections>
+      <DownloadSections
+        downloadSections={downloadSections}
+        setDownloadSections={setDownloadSections}
+      ></DownloadSections>
       <hr></hr>
 
       <h5>Seções de Características</h5>
-      <FeaturesSection></FeaturesSection>
+      <FeaturesSection
+        featuresList={featuresList}
+        setFeaturesList={setFeaturesList}
+      ></FeaturesSection>
       <hr></hr>
 
       <h5>Descrições</h5>
@@ -48,7 +81,10 @@ function SimpleTemplateForm() {
           onChange={(e) => setFooterTitle(e.target.value)}
         />
       </Form.Group>
-      <FooterParagraphs></FooterParagraphs>
+      <FooterParagraphs
+        footerParagraphs={footerParagraphs}
+        setFooterParagraphs={setFooterParagraphs}
+      ></FooterParagraphs>
     </Form>
   );
 }

@@ -1,15 +1,17 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import { Accordion, Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import { v4 as randomUUID } from "uuid";
 
 import { IDownloadSection } from "../../../../interfaces";
 import DownloadSectionButtons from "./buttons";
 
-function DownloadSections() {
-  const [downloadSections, setDownloadSections] = useState<IDownloadSection[]>(
-    []
-  );
-
+function DownloadSections({
+  downloadSections,
+  setDownloadSections,
+}: {
+  downloadSections: IDownloadSection[];
+  setDownloadSections: React.Dispatch<React.SetStateAction<IDownloadSection[]>>;
+}) {
   const handleAddClick = useCallback(() => {
     setDownloadSections([
       ...downloadSections,
@@ -76,8 +78,6 @@ function DownloadSections() {
               </Accordion.Header>
               <Accordion.Body>
                 <Form.Group className="mb-3" key={section.id}>
-                  <Form.Label>
-                  </Form.Label>
                   <InputGroup className="mb-3">
                     <InputGroup.Text>Título</InputGroup.Text>
                     <Form.Control
