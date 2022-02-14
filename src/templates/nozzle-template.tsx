@@ -5,7 +5,7 @@ import {
   IDownloadSection,
   IFeatureWithTitle,
   IGenericText,
-  ITag,
+  IUrlWithText,
   ParagraphWithLinks
 } from "../interfaces";
 
@@ -18,7 +18,7 @@ export function NozzleTemplate({
 }: {
   descriptionParagraph?: ParagraphWithLinks;
   descriptionBulletPoints?: IGenericText[];
-  tags?: ITag[];
+  tags?: IUrlWithText[];
   downloadSections?: IDownloadSection[];
   featuresList?: IFeatureWithTitle[];
 }) {

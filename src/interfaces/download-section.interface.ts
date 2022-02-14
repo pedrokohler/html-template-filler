@@ -1,7 +1,7 @@
-import { IDownloadSectionButton } from "./download-section-button.interface";
+import { IUrlWithText } from "./url-with-text.interface";
 
 export interface IDownloadSection {
   id: string;
   title: string;
-  buttons: IDownloadSectionButton[];
+  buttons: IUrlWithText[];
 }

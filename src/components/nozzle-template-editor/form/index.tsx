@@ -4,12 +4,13 @@ import {
   IDownloadSection,
   IFeatureWithTitle,
   IGenericText,
-  ITag,
+  IUrlWithText,
   ParagraphWithLinks,
 } from "../../../interfaces";
 import DescriptionParagraphField from "./description-paragraph";
 import DownloadSections from "./download-sections";
-import DescriptionBulletPoints from "./description-bullet-points";
+import DescriptionBulletPointsSection from "./description-bullet-points-section";
+import TagsSection from "./tag-sections";
 
 function NozzleTemplateForm({
   descriptionBulletPoints,
@@ -23,7 +24,7 @@ function NozzleTemplateForm({
   setFeaturesList,
 }: {
   descriptionBulletPoints: IGenericText[];
-  tags: ITag[];
+  tags: IUrlWithText[];
   downloadSections: IDownloadSection[];
   featuresList: IFeatureWithTitle[];
   setDescriptionParagraph: React.Dispatch<
@@ -32,7 +33,7 @@ function NozzleTemplateForm({
   setDescriptionBulletPoints: React.Dispatch<
     React.SetStateAction<IGenericText[]>
   >;
-  setTags: React.Dispatch<React.SetStateAction<ITag[]>>;
+  setTags: React.Dispatch<React.SetStateAction<IUrlWithText[]>>;
   setDownloadSections: React.Dispatch<React.SetStateAction<IDownloadSection[]>>;
   setFeaturesList: React.Dispatch<React.SetStateAction<IFeatureWithTitle[]>>;
 }) {
@@ -50,10 +51,14 @@ function NozzleTemplateForm({
         setDescriptionParagraph={setDescriptionParagraph}
       ></DescriptionParagraphField>
 
-      <DescriptionBulletPoints
+      <DescriptionBulletPointsSection
         descriptionBulletPoints={descriptionBulletPoints}
         setDescriptionBulletPoints={setDescriptionBulletPoints}
-      ></DescriptionBulletPoints>
+      ></DescriptionBulletPointsSection>
+      <hr></hr>
+
+      <h5>Tags</h5>
+      <TagsSection tags={tags} setTags={setTags}></TagsSection>
       <hr></hr>
 
       {/*

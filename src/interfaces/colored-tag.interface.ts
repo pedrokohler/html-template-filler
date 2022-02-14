@@ -1,7 +1,7 @@
-import { ITag } from "./tag.interface";
+import { IUrlWithText } from "./url-with-text.interface";
 
 
-export interface IColoredTag extends ITag {
+export interface IColoredTag extends IUrlWithText {
   backgroundColor: string;
   textColor: string;
 }

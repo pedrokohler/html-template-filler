@@ -8,7 +8,7 @@ import {
   IDownloadSection,
   IFeatureWithTitle,
   IGenericText,
-  ITag,
+  IUrlWithText,
   ParagraphWithLinks,
 } from "../../interfaces";
 import NozzleTemplateForm from "./form";
@@ -21,7 +21,7 @@ function EditNozzleTemplate() {
   const [descriptionBulletPoints, setDescriptionBulletPoints] = useState<
     IGenericText[]
   >([]);
-  const [tags, setTags] = useState<ITag[]>([]);
+  const [tags, setTags] = useState<IUrlWithText[]>([]);
   const [downloadSections, setDownloadSections] = useState<IDownloadSection[]>(
     []
   );

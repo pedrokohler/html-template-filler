@@ -17,6 +17,7 @@ code {
 }
 
 .sticky {
+  z-index: 10;
   margin-right: 0;
   margin-left: 0;
   position: sticky;
