@@ -40,7 +40,6 @@ function EditNozzleTemplate() {
         <h1 className="my-4">Bicos</h1>
         <Row className="my-2">
           <NozzleTemplateForm
-            descriptionParagraph={descriptionParagraph}
             descriptionBulletPoints={descriptionBulletPoints}
             tags={tags}
             downloadSections={downloadSections}
