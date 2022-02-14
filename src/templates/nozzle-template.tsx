@@ -1,25 +1,12 @@
+import { SpecialPropertyType, TextOrLinkType } from "../enums";
 import {
   IColoredTag,
   IDownloadSection,
   IFeatureWithTitle,
   IGenericText,
   ITag,
-  SpecialPropertyType,
+  ParagraphWithLinks
 } from "../interfaces";
-
-export enum TextOrLinkType {
-  TEXT = "TEXT",
-  LINK = "LINK",
-}
-
-export interface TextOrLink {
-  id: string;
-  type: TextOrLinkType;
-  value: string;
-  url?: string;
-}
-
-export type ParagraphWithLinks = TextOrLink[];
 
 export function NozzleTemplate({
   descriptionParagraph,

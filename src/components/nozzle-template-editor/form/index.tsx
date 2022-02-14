@@ -5,8 +5,8 @@ import {
   IFeatureWithTitle,
   IGenericText,
   ITag,
+  ParagraphWithLinks,
 } from "../../../interfaces";
-import { ParagraphWithLinks } from "../../../templates";
 import DescriptionParagraphField from "./description-paragraph";
 import DownloadSections from "./download-sections";
 import DescriptionBulletPoints from "./description-bullet-points";

@@ -3,20 +3,25 @@ import { renderToString } from "react-dom/server";
 import { html as beautifyHtml } from "js-beautify";
 import { Container, Row } from "react-bootstrap";
 
-import { NozzleTemplate, ParagraphWithLinks } from "../../templates";
-import { IDownloadSection, IFeatureWithTitle, IGenericText, ITag } from "../../interfaces";
+import { NozzleTemplate } from "../../templates";
+import {
+  IDownloadSection,
+  IFeatureWithTitle,
+  IGenericText,
+  ITag,
+  ParagraphWithLinks,
+} from "../../interfaces";
 import NozzleTemplateForm from "./form";
 import Footer from "../footer";
 
 function EditNozzleTemplate() {
   const [featuresList, setFeaturesList] = useState<IFeatureWithTitle[]>([]);
-  const [descriptionParagraph, setDescriptionParagraph] = useState<ParagraphWithLinks>([]);
-  const [descriptionBulletPoints, setDescriptionBulletPoints] = useState<IGenericText[]>(
-    []
-  );
-  const [tags, setTags] = useState<ITag[]>(
-    []
-  );
+  const [descriptionParagraph, setDescriptionParagraph] =
+    useState<ParagraphWithLinks>([]);
+  const [descriptionBulletPoints, setDescriptionBulletPoints] = useState<
+    IGenericText[]
+  >([]);
+  const [tags, setTags] = useState<ITag[]>([]);
   const [downloadSections, setDownloadSections] = useState<IDownloadSection[]>(
     []
   );

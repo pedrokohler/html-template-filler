@@ -3,3 +3,8 @@ export * from './download-section-button.interface';
 export * from './features-list.interface';
 export * from './generic-text.interface';
 export * from './features-list-with-title.interface'
+export * from './text-or-link.interface';
+export * from './paragraph-with-links.interface';
+export * from './colored-tag.interface';
+export * from './tag.interface';
+export * from './special-property.interface';

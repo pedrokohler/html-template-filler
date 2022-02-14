@@ -1,5 +1,6 @@
 import { v4 as randomUUID } from 'uuid';
-import { ParagraphWithLinks, TextOrLinkType } from '../templates';
+import { TextOrLinkType } from '../enums';
+import { ParagraphWithLinks } from '../interfaces';
 
 export function processUnformattedDescription(unformattedParagraph: string): ParagraphWithLinks {
   const marker = randomUUID();

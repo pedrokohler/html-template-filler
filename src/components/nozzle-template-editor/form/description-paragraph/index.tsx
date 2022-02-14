@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Form, Overlay, Tooltip } from "react-bootstrap";
-import { processUnformattedDescription } from "../../../../helpers/process-unformatted-description";
-import { ParagraphWithLinks } from "../../../../templates";
+import { processUnformattedDescription } from "../../../../helpers";
+import { ParagraphWithLinks } from "../../../../interfaces";
 
 function DescriptionParagraphField({
   setDescriptionParagraph,
@@ -15,9 +15,11 @@ function DescriptionParagraphField({
   const tooltipTarget = useRef(null);
 
   useEffect(() => {
-    const paragraphWithLinks = processUnformattedDescription(unformattedDescription);
+    const paragraphWithLinks = processUnformattedDescription(
+      unformattedDescription
+    );
     setDescriptionParagraph(paragraphWithLinks);
-  }, [unformattedDescription, setDescriptionParagraph])
+  }, [unformattedDescription, setDescriptionParagraph]);
   return (
     <>
       <Form.Group className="mb-3">
