@@ -59,7 +59,7 @@ function FooterParagraphs({
           const excerpt = text.slice(0, 20);
           const previewText = text.length > 20 ? `${excerpt}...` : excerpt;
           return (
-            <Accordion.Item eventKey={id}>
+            <Accordion.Item eventKey={id} key={id}>
               <Accordion.Header>
                 Parágrafo do Rodapé - {previewText || "Sem Texto"}
               </Accordion.Header>

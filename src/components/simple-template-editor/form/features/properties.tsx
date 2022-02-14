@@ -68,7 +68,7 @@ function FeatureProperties({
       {properties.map((property) => {
         const propertyId = property.id;
         return (
-          <Accordion.Item eventKey={propertyId}>
+          <Accordion.Item eventKey={propertyId} key={propertyId}>
             <Accordion.Header>
               {property.text || "Propriedade Sem Texto"}
             </Accordion.Header>

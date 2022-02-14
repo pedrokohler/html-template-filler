@@ -73,7 +73,7 @@ function DownloadSectionButtons({
       {buttons.map((button) => {
         const buttonId = button.id;
         return (
-          <Accordion.Item eventKey={buttonId}>
+          <Accordion.Item eventKey={buttonId} key={buttonId}>
             <Accordion.Header>
               {button.text || "Botão Sem Texto"}
             </Accordion.Header>

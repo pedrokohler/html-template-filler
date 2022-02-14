@@ -69,7 +69,7 @@ function FeaturesSection({
         {featuresList.map((feature) => {
           const { id, title } = feature;
           return (
-            <Accordion.Item eventKey={id}>
+            <Accordion.Item eventKey={id} key={id}>
               <Accordion.Header>
                 Seção de Características - {title || "Sem Título"}
               </Accordion.Header>

@@ -33,7 +33,9 @@ export function SimpleTemplate({
                   <a
                     className="btn btn-success btn-lg"
                     href={button.url}
+                    target="_blank"
                     type="button"
+                    rel="noreferrer"
                   >
                     {button.text}
                   </a>

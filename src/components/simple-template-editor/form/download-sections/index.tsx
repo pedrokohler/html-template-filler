@@ -72,7 +72,7 @@ function DownloadSections({
         {downloadSections.map((section) => {
           const { id, title } = section;
           return (
-            <Accordion.Item eventKey={id}>
+            <Accordion.Item eventKey={id} key={id}>
               <Accordion.Header>
                 Seção de Downloads - {title || "Sem Título"}
               </Accordion.Header>
