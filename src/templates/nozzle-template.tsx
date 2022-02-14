@@ -1,3 +1,4 @@
+import React from 'react';
 import { SpecialPropertyType, TextOrLinkType } from "../enums";
 import {
   IColoredTag,
