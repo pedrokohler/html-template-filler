@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import { Accordion, Button, Form, InputGroup } from "react-bootstrap";
+import { ColorResult, SliderPicker } from "react-color";
 
 import {
   IColoredTag,
@@ -42,27 +43,34 @@ function TagsSection({
     [featuresList, setFeaturesList]
   );
 
+  const findTag = useCallback(
+    ({ featureId, propertyId, tagId }) => {
+      const section = featuresList.find((section) => section.id === featureId);
+      if (!section) {
+        return;
+      }
+
+      const property = section.properties.find(
+        (property) => property.id === propertyId
+      );
+      if (!property) {
+        return;
+      }
+
+      const tags = property.content as IColoredTag[];
+      const tag = tags.find((tag) => tag.id === tagId);
+      return tag;
+    },
+    [featuresList]
+  );
+
   const handleUpdateProperty = useCallback(
     ({ featureId, propertyId, tagId }) => {
       // @ts-ignore
       return (e) => {
         const { target } = e;
-        const section = featuresList.find(
-          (section) => section.id === featureId
-        );
-        if (!section) {
-          return;
-        }
+        const tag = findTag({ featureId, propertyId, tagId });
 
-        const property = section.properties.find(
-          (property) => property.id === propertyId
-        );
-        if (!property) {
-          return;
-        }
-
-        const tags = property.content as IColoredTag[];
-        const tag = tags.find((tag) => tag.id === tagId);
         if (!tag) {
           return;
         }
@@ -73,17 +81,38 @@ function TagsSection({
         if (target.name === "link") {
           tag.url = target.value;
         }
-        if (target.name === "backgroundColor") {
-          tag.backgroundColor = target.value;
-        }
-        if (target.name === "textColor") {
-          tag.textColor = target.value;
-        }
 
         setFeaturesList([...featuresList]);
       };
     },
-    [featuresList, setFeaturesList]
+    [featuresList, setFeaturesList, findTag]
+  );
+
+  const handleChangeColor = useCallback(
+    ({
+      featureId,
+      propertyId,
+      tagId,
+      colorProp,
+    }: {
+      featureId: string;
+      propertyId: string;
+      tagId: string;
+      colorProp: keyof IColoredTag;
+    }) => {
+      return (color: ColorResult) => {
+        const tag = findTag({ featureId, propertyId, tagId });
+
+        if (!tag) {
+          return;
+        }
+
+        tag[colorProp] = color.hex;
+
+        setFeaturesList([...featuresList]);
+      };
+    },
+    [findTag, setFeaturesList, featuresList]
   );
 
   const { id: propertyId, content: tags } = property;
@@ -95,9 +124,7 @@ function TagsSection({
         const { id: tagId } = tag;
         return (
           <Accordion.Item eventKey={tagId} key={tagId}>
-            <Accordion.Header>
-              {tag.text || "Tag Sem Texto"}
-            </Accordion.Header>
+            <Accordion.Header>{tag.text || "Tag Sem Texto"}</Accordion.Header>
             <Accordion.Body>
               <InputGroup className="mb-3">
                 <InputGroup.Text>Texto</InputGroup.Text>
@@ -125,13 +152,40 @@ function TagsSection({
                   })}
                 />
               </InputGroup>
+
+              <div className="mb-3">
+              <InputGroup.Text>Cor de fundo</InputGroup.Text>
+              <SliderPicker
+                color={tag.backgroundColor}
+                onChangeComplete={handleChangeColor({
+                  featureId,
+                  propertyId,
+                  tagId,
+                  colorProp: "backgroundColor"
+                })}
+              ></SliderPicker>
+              </div>
+
+              <div className="mb-3">
+              <InputGroup.Text>Cor do texto</InputGroup.Text>
+              <SliderPicker
+                color={tag.textColor}
+                onChangeComplete={handleChangeColor({
+                  featureId,
+                  propertyId,
+                  tagId,
+                  colorProp: "textColor"
+                })}
+              ></SliderPicker>
+              </div>
+
               <Button
                 className="mt-2"
                 variant="danger"
                 onClick={handleRemoveButtonClick({
                   featureId,
                   propertyId,
-                  tagId
+                  tagId,
                 })}
               >
                 Remover
