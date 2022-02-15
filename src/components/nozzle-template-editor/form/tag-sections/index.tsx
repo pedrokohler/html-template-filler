@@ -104,7 +104,7 @@ function TagsSection({
     </Accordion>
     <Row className="mb-5">
       <Col>
-        <Button onClick={handleAddClick}>Adicionar Seção de Downloads</Button>
+        <Button onClick={handleAddClick}>Adicionar Tag</Button>
       </Col>
     </Row>
     </>
