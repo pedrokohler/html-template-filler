@@ -1,13 +1,16 @@
 import React, { useCallback } from "react";
 import { Accordion, Button, Form, InputGroup } from "react-bootstrap";
-import { SpecialPropertyType } from "../../../../enums";
+import { v4 as randomUUID } from "uuid";
 
+import { SpecialPropertyType } from "../../../../enums";
 import {
+  IColoredTag,
   IFeatureWithSpecialProperty,
   ISpecialProperty,
 } from "../../../../interfaces";
+import TagsSection from "./tags-section";
 
-function TextProperty({
+function TagProperty({
   featuresList,
   setFeaturesList,
   feature,
@@ -72,9 +75,9 @@ function TextProperty({
         if (target.name === "type") {
           const { value } = target;
           property.type = value;
-          if(value === SpecialPropertyType.DEFAULT){
+          if (value === SpecialPropertyType.DEFAULT) {
             property.content = "";
-          }else {
+          } else {
             property.content = [];
           }
         }
@@ -84,6 +87,40 @@ function TextProperty({
     },
     [featuresList, setFeaturesList]
   );
+
+  const handleAddTagClick = useCallback(
+    ({ featureId, propertyId }) => {
+      return () => {
+        const section = featuresList.find(
+          (section) => section.id === featureId
+        );
+
+        if (!section) {
+          return;
+        }
+
+        const property = section.properties.find(
+          (property) => property.id === propertyId
+        );
+
+        if (!property) {
+          return;
+        }
+        const tags = property.content as IColoredTag[];
+        property.content = [
+          ...tags,
+          {
+            id: randomUUID(),
+            backgroundColor: "white",
+            textColor: "black",
+            text: "",
+            url: "",
+          },
+        ];
+
+        setFeaturesList([...featuresList]);
+      }
+  }, [featuresList, setFeaturesList]);
 
   const { id: propertyId } = property;
   const { id: featureId } = feature;
@@ -121,18 +158,14 @@ function TextProperty({
             })}
           />
         </InputGroup>
-        <InputGroup className="mb-3">
-          <InputGroup.Text>Texto</InputGroup.Text>
-          <Form.Control
-            name="content"
-            as="input"
-            value={property.content as string}
-            onChange={handleUpdateProperty({
-              featureId,
-              propertyId,
-            })}
-          />
-        </InputGroup>
+
+        <TagsSection
+          featuresList={featuresList}
+          setFeaturesList={setFeaturesList}
+          feature={feature}
+          property={property}
+        ></TagsSection>
+
         <Button
           className="mt-2"
           variant="danger"
@@ -143,8 +176,19 @@ function TextProperty({
         >
           Remover
         </Button>
+
+        <Button
+          name="property"
+          className="mt-2 mx-2"
+          onClick={handleAddTagClick({
+            featureId,
+            propertyId,
+          })}
+        >
+          Adicionar Tag
+        </Button>
       </Accordion.Body>
     </Accordion.Item>
   );
 }
-export default TextProperty;
+export default TagProperty;

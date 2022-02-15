@@ -91,7 +91,7 @@ export function NozzleTemplate({
                 const tags = specialProperty.content as IColoredTag[];
                 return (
                   <li key={specialProperty.id}>
-                    {specialProperty.title}
+                    <strong>{specialProperty.title}</strong>
                     <ul className="keywords-tags">
                       {tags?.map((tag) => (
                         <li

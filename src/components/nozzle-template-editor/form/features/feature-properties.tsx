@@ -3,6 +3,7 @@ import { Accordion } from "react-bootstrap";
 import { SpecialPropertyType } from "../../../../enums";
 
 import { IFeatureWithSpecialProperty } from "../../../../interfaces";
+import TagProperty from "./tag-properties";
 import TextProperty from "./text-properties";
 
 function FeatureProperties({
@@ -19,10 +20,10 @@ function FeatureProperties({
   return (
     <Accordion className="mb-3">
       {properties.map((property) => {
-        const propertyId = property.id;
         if(property.type === SpecialPropertyType.DEFAULT){
           return (
             <TextProperty
+              key={property.id}
               featuresList={featuresList}
               setFeaturesList={setFeaturesList}
               feature={feature}
@@ -31,7 +32,13 @@ function FeatureProperties({
           );
         }else {
           return (
-            <span key={propertyId}>Not implemented :(</span>
+            <TagProperty
+              key={property.id}
+              featuresList={featuresList}
+              setFeaturesList={setFeaturesList}
+              feature={feature}
+              property={property}
+            ></TagProperty>
           )
         }
       })}
