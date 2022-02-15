@@ -3,7 +3,7 @@ import { SpecialPropertyType, TextOrLinkType } from "../enums";
 import {
   IColoredTag,
   IDownloadSection,
-  IFeatureWithTitle,
+  IFeatureWithSpecialProperty,
   IGenericText,
   IUrlWithText,
   ParagraphWithLinks
@@ -20,7 +20,7 @@ export function NozzleTemplate({
   descriptionBulletPoints?: IGenericText[];
   tags?: IUrlWithText[];
   downloadSections?: IDownloadSection[];
-  featuresList?: IFeatureWithTitle[];
+  featuresList?: IFeatureWithSpecialProperty[];
 }) {
   return (
     <div className="product-charity">
@@ -93,7 +93,7 @@ export function NozzleTemplate({
                   <li key={specialProperty.id}>
                     {specialProperty.title}
                     <ul className="keywords-tags">
-                      {tags.map((tag) => (
+                      {tags?.map((tag) => (
                         <li
                           key={tag.id}
                           style={{

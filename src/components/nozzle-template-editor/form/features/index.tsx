@@ -1,16 +1,17 @@
 import React, { useCallback } from "react";
 import { Accordion, Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import { v4 as randomUUID } from "uuid";
+import { SpecialPropertyType } from "../../../../enums";
 
-import { IFeature } from "../../../../interfaces";
-import FeatureProperties from "./properties";
+import { IFeatureWithSpecialProperty } from "../../../../interfaces";
+import FeatureProperties from "./feature-properties";
 
 function FeaturesSection({
   featuresList,
   setFeaturesList,
 }: {
-  featuresList: IFeature[];
-  setFeaturesList: React.Dispatch<React.SetStateAction<IFeature[]>>;
+  featuresList: IFeatureWithSpecialProperty[];
+  setFeaturesList: React.Dispatch<React.SetStateAction<IFeatureWithSpecialProperty[]>>;
 }) {
   const handleAddClick = useCallback(() => {
     setFeaturesList([
@@ -52,7 +53,9 @@ function FeaturesSection({
             ...feature.properties,
             {
               id: randomUUID(),
-              text: "",
+              title: "",
+              type: SpecialPropertyType.DEFAULT,
+              content: "",
             },
           ];
         }

@@ -6,7 +6,7 @@ import { Container, Row } from "react-bootstrap";
 import { NozzleTemplate } from "../../templates";
 import {
   IDownloadSection,
-  IFeatureWithTitle,
+  IFeatureWithSpecialProperty,
   IGenericText,
   IUrlWithText,
   ParagraphWithLinks,
@@ -15,7 +15,7 @@ import NozzleTemplateForm from "./form";
 import Footer from "../footer";
 
 function EditNozzleTemplate() {
-  const [featuresList, setFeaturesList] = useState<IFeatureWithTitle[]>([]);
+  const [featuresList, setFeaturesList] = useState<IFeatureWithSpecialProperty[]>([]);
   const [descriptionParagraph, setDescriptionParagraph] =
     useState<ParagraphWithLinks>([]);
   const [descriptionBulletPoints, setDescriptionBulletPoints] = useState<
