@@ -5,6 +5,8 @@ import { v4 as randomUUID } from "uuid";
 
 import { IUrlWithText } from "../../../../interfaces";
 
+const BASE_HOST_URL = "https://www.comam.com.br/buscar"
+
 function TagsSection({
   tags,
   setTags,
@@ -36,11 +38,15 @@ function TagsSection({
           return;
         }
 
+        const value = target.value;
+
         if (target.name === "text") {
-          tag.text = target.value;
+          const urlEncodedText = encodeURI(value);
+          tag.text = value;
+          tag.url = `${BASE_HOST_URL}?q=${urlEncodedText}`
         }
         if (target.name === "link") {
-          tag.url = target.value;
+          tag.url = value;
         }
 
         setTags([...tags]);
@@ -55,7 +61,7 @@ function TagsSection({
       {
         id: randomUUID(),
         text: "",
-        url: "",
+        url: BASE_HOST_URL,
       },
     ]);
   }, [tags, setTags]);
