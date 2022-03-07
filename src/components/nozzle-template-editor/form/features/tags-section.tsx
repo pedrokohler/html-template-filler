@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
-import { Accordion, Button, Form, InputGroup } from "react-bootstrap";
-import { ColorResult, SliderPicker } from "react-color";
+import { Accordion, Button, Col, Form, InputGroup, Row } from "react-bootstrap";
+import { ColorResult, CirclePicker } from "react-color";
 
 import {
   IColoredTag,
@@ -152,32 +152,52 @@ function TagsSection({
                   })}
                 />
               </InputGroup>
+              <Row className="mb-3">
+                <Col>
+                  <InputGroup.Text>Cor de fundo</InputGroup.Text>
+                  <div className="mb-3 color-picker-container">
+                    <CirclePicker
+                      color={tag.backgroundColor}
+                      colors={[
+                        "#E74F3A",
+                        "#308957",
+                        "#F6C53A",
+                        "#794488",
+                        "#215282",
+                        "#5F1823",
+                        "#A42928",
+                        "#4A2B21",
+                        "#8C8F8F",
+                        "#EDEDE2",
+                        "#398BB9",
+                      ]}
+                      onChangeComplete={handleChangeColor({
+                        featureId,
+                        propertyId,
+                        tagId,
+                        colorProp: "backgroundColor",
+                      })}
+                    ></CirclePicker>
+                  </div>
+                </Col>
+                <Col>
+                  <InputGroup.Text>Cor do texto</InputGroup.Text>
+                  <div className="mb-3 color-picker-container">
+                    <CirclePicker
+                      color={tag.textColor}
+                      colors={["#000000", "#FFFFFF"]}
+                      onChangeComplete={handleChangeColor({
+                        featureId,
+                        propertyId,
+                        tagId,
+                        colorProp: "textColor",
+                      })}
+                    ></CirclePicker>
+                  </div>
+                </Col>
+              </Row>
 
-              <div className="mb-3">
-              <InputGroup.Text>Cor de fundo</InputGroup.Text>
-              <SliderPicker
-                color={tag.backgroundColor}
-                onChangeComplete={handleChangeColor({
-                  featureId,
-                  propertyId,
-                  tagId,
-                  colorProp: "backgroundColor"
-                })}
-              ></SliderPicker>
-              </div>
-
-              <div className="mb-3">
-              <InputGroup.Text>Cor do texto</InputGroup.Text>
-              <SliderPicker
-                color={tag.textColor}
-                onChangeComplete={handleChangeColor({
-                  featureId,
-                  propertyId,
-                  tagId,
-                  colorProp: "textColor"
-                })}
-              ></SliderPicker>
-              </div>
+              <div className="mb-3"></div>
 
               <Button
                 className="mt-2"

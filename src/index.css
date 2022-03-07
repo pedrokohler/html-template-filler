@@ -25,3 +25,9 @@ code {
   background-color: white;
   border-top: solid 1px #ced4da;
 }
+
+.color-picker-container {
+  background-color: #CCCCCC;
+  padding: 20px;
+  border-radius: 0 0 5px 5px;
+}
