@@ -82,8 +82,8 @@ export function NozzleTemplate({
                   const content = specialProperty.content as string;
                   return (
                     <li key={specialProperty.id}>
-                      <strong>{`${specialProperty.title}: `}</strong>
-                      {content}
+                      {`${specialProperty.title}: `}
+                      <strong>{content}</strong>
                     </li>
                   );
                 }
